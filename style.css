@@ -1,0 +1,37 @@
+.kozepre    {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  text-align: center;
+}
+
+body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to right, #ff0000, #002fff);
+        display: flex;
+        font-family: sans-serif;
+    }
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.para {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+}
