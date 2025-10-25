@@ -6,13 +6,6 @@
   text-align: center;
 }
 
-body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(to right, #ff0000, #002fff);
-        display: flex;
-        font-family: sans-serif;
-    }
 
 h1 {
   color: white;
