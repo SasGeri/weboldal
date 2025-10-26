@@ -3,17 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Sasweb</title>
-   <link rel="icon" href="fenticucc.png" type="image/png">
+  <link rel="icon" href="fenticucc.png" type="image/png">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-image: url(bg.jpg);
+      background-position: center;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-position: center
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background-image: none;
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    .toggle-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 0.5rem 1rem;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    body.light-mode .toggle-button {
+      background-color: #ddd;
+      color: black;
     }
 
     h1 {
@@ -40,16 +65,25 @@
     .box {
       width: 120px;
       height: 120px;
-      background-color: rgba(255, 255, 255, 0.596); /* átlátszó kék */
+      background-color: rgba(255, 255, 255, 0.6);
       border: 2px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
 
+    body.light-mode .box {
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
     .box:hover {
       transform: scale(1.1) rotate(3deg);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    body.light-mode .box:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
 
     .para {
@@ -63,32 +97,48 @@
     .logo {
       width: 180px;
       margin-top: 30px;
+      transition: opacity 0.3s;
     }
   </style>
 </head>
 <body>
-  <img src="sasweb.png" alt="Sasweb Logo" class="logo">
+  <button class="toggle-button" onclick="toggleMode()">🌗 Módváltás</button>
+
+  <img src="sasweb.png" alt="Sasweb Logo" class="logo" id="logo">
 
   <h1>Üdv itt! c:</h1>
 
-<div class="container">
-  <div class="box" onclick="window.location.href='https://www.youtube.com/@sasgergowt'">
-    <p style="text-align:center; margin-top:40px;">Youtube</p>
+  <div class="container">
+    <div class="box" onclick="window.location.href='https://www.youtube.com/@sasgergowt'">
+      <p style="text-align:center; margin-top:40px;">Youtube</p>
+    </div>
+    <div class="box" onclick="window.location.href='https://discord.gg/R9SvSXzEg5'">
+      <p style="text-align:center; margin-top:40px;">Discord server</p>
+    </div>
+    <div class="box" onclick="window.location.href='https://pixelplanet.fun/#d,3668,-10024,-6'">
+      <p style="text-align:center; margin-top:40px;">PixelPlanet</p>
+    </div>
   </div>
-  <div class="box" onclick="window.location.href='https://discord.gg/R9SvSXzEg5'">
-    <p style="text-align:center; margin-top:40px;">Discord server</p>
-  </div>
-  <div class="box" onclick="window.location.href='https://pixelplanet.fun/#d,3668,-10024,-6'">
-    <p style="text-align:center; margin-top:40px;">PixelPlanet</p>
-  </div>
-</div>
 
-<h1>
-  Rólam:
-</h1>
+  <h1>Rólam:</h1>
 
-<p class="para">
-  Szia! Sas Geri vagyok, egy magyar srác! Már régóta megtalálható vagyok rengeteg platforomon, Discordon is volt már számos szerverem. Ha van kedved nyugodtan nézz körül a linkeken! :)
-</p>
+  <p class="para">
+    Szia! Sas Geri vagyok, egy magyar srác! Már régóta megtalálható vagyok rengeteg platforomon, Discordon is volt már számos szerverem. Ha van kedved nyugodtan nézz körül a linkeken! :)
+  </p>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const logo = document.getElementById('logo');
+
+      body.classList.toggle('light-mode');
+
+      if (body.classList.contains('light-mode')) {
+        logo.src = 'logolight.png';
+      } else {
+        logo.src = 'sasweb.png';
+      }
+    }
+  </script>
 </body>
 </html>
